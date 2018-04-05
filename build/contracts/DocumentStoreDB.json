@@ -1,0 +1,3592 @@
+{
+  "contractName": "DocumentStoreDB",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "requestedAuthor",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getByAuthor",
+      "outputs": [
+        {
+          "name": "documentHashes",
+          "type": "bytes32[25]"
+        },
+        {
+          "name": "titles",
+          "type": "bytes32[25]"
+        },
+        {
+          "name": "authors",
+          "type": "bytes32[25]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "documentHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "author",
+          "type": "bytes32"
+        }
+      ],
+      "name": "register",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "cmc_",
+          "type": "address"
+        }
+      ],
+      "name": "setCMC",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "requestedHash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getByHash",
+      "outputs": [
+        {
+          "name": "documentHash",
+          "type": "bytes32"
+        },
+        {
+          "name": "title",
+          "type": "bytes32"
+        },
+        {
+          "name": "author",
+          "type": "bytes32"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "fallback"
+    }
+  ],
+  "bytecode": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506108e9806100536000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b51461007d578063459a3405146100925780634da274fd146101535780639c740b0e146101ac578063a2dd3d47146101fd575b341561007857600080fd5b600080fd5b341561008857600080fd5b61009061025e565b005b341561009d57600080fd5b6100b76004808035600019169060200190919050506102f3565b6040518084601960200280838360005b838110156100e25780820151818401526020810190506100c7565b5050505090500183601960200280838360005b838110156101105780820151818401526020810190506100f5565b5050505090500182601960200280838360005b8381101561013e578082015181840152602081019050610123565b50505050905001935050505060405180910390f35b341561015e57600080fd5b610192600480803560001916906020019091908035600019169060200190919080356000191690602001909190505061049a565b604051808215151515815260200191505060405180910390f35b34156101b757600080fd5b6101e3600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610635565b604051808215151515815260200191505060405180910390f35b341561020857600080fd5b610222600480803560001916906020019091905050610760565b60405180846000191660001916815260200183600019166000191681526020018260001916600019168152602001935050505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102b957600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6102fb6107e9565b6103036107e9565b61030b6107e9565b610313610815565b6000600360008760001916600019168152602001908152602001600020805480602002602001604051908101604052809291908181526020016000905b828210156103b9578382906000526020600020906003020160606040519081016040529081600082015460001916600019168152602001600182015460001916600019168152602001600282015460001916600019168152505081526020019060010190610350565b505050509150600090505b81518110156104915781818151811015156103db57fe5b906020019060200201516000015185826019811015156103f757fe5b60200201906000191690816000191681525050818181518110151561041857fe5b9060200190602002015160200151848260198110151561043457fe5b60200201906000191690816000191681525050818181518110151561045557fe5b9060200190602002015160400151838260198110151561047157fe5b6020020190600019169081600019168152505080806001019150506103c4565b50509193909250565b60006104a4610829565b600060010260026000876000191660001916815260200190815260200160002060000154600019161415156104dc576000915061062d565b6060604051908101604052808660001916815260200185600019168152602001846000191681525090508060026000876000191660001916815260200190815260200160002060008201518160000190600019169055602082015181600101906000191690556040820151816002019060001916905590505060036000846000191660001916815260200190815260200160002080548060010182816105829190610854565b91600052602060002090600302016000839091909150600082015181600001906000191690556020820151816001019060001916905560408201518160020190600019169055505050600480548060010182816105df9190610854565b91600052602060002090600302016000839091909150600082015181600001906000191690556020820151816001019060001916905560408201518160020190600019169055505050600191505b509392505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561069257600080fd5b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561070757508173ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b15610715576000905061075b565b81600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b600080600061076d610829565b6002600086600019166000191681526020019081526020016000206060604051908101604052908160008201546000191660001916815260200160018201546000191660001916815260200160028201546000191660001916815250509050806000015193508060200151925080604001519150509193909250565b610320604051908101604052806019905b60008019168152602001906001900390816107fa5790505090565b602060405190810160405280600081525090565b6060604051908101604052806000801916815260200160008019168152602001600080191681525090565b815481835581811511610881576003028160030283600052602060002091820191016108809190610886565b5b505050565b6108ba91905b808211156108b657600080820160009055600182016000905560028201600090555060030161088c565b5090565b905600a165627a7a7230582046317822a8c1cc41183a305a569a173304b163e597276c159379fffea1d6c7df0029",
+  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806341c0e1b51461007d578063459a3405146100925780634da274fd146101535780639c740b0e146101ac578063a2dd3d47146101fd575b341561007857600080fd5b600080fd5b341561008857600080fd5b61009061025e565b005b341561009d57600080fd5b6100b76004808035600019169060200190919050506102f3565b6040518084601960200280838360005b838110156100e25780820151818401526020810190506100c7565b5050505090500183601960200280838360005b838110156101105780820151818401526020810190506100f5565b5050505090500182601960200280838360005b8381101561013e578082015181840152602081019050610123565b50505050905001935050505060405180910390f35b341561015e57600080fd5b610192600480803560001916906020019091908035600019169060200190919080356000191690602001909190505061049a565b604051808215151515815260200191505060405180910390f35b34156101b757600080fd5b6101e3600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610635565b604051808215151515815260200191505060405180910390f35b341561020857600080fd5b610222600480803560001916906020019091905050610760565b60405180846000191660001916815260200183600019166000191681526020018260001916600019168152602001935050505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415156102b957600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b6102fb6107e9565b6103036107e9565b61030b6107e9565b610313610815565b6000600360008760001916600019168152602001908152602001600020805480602002602001604051908101604052809291908181526020016000905b828210156103b9578382906000526020600020906003020160606040519081016040529081600082015460001916600019168152602001600182015460001916600019168152602001600282015460001916600019168152505081526020019060010190610350565b505050509150600090505b81518110156104915781818151811015156103db57fe5b906020019060200201516000015185826019811015156103f757fe5b60200201906000191690816000191681525050818181518110151561041857fe5b9060200190602002015160200151848260198110151561043457fe5b60200201906000191690816000191681525050818181518110151561045557fe5b9060200190602002015160400151838260198110151561047157fe5b6020020190600019169081600019168152505080806001019150506103c4565b50509193909250565b60006104a4610829565b600060010260026000876000191660001916815260200190815260200160002060000154600019161415156104dc576000915061062d565b6060604051908101604052808660001916815260200185600019168152602001846000191681525090508060026000876000191660001916815260200190815260200160002060008201518160000190600019169055602082015181600101906000191690556040820151816002019060001916905590505060036000846000191660001916815260200190815260200160002080548060010182816105829190610854565b91600052602060002090600302016000839091909150600082015181600001906000191690556020820151816001019060001916905560408201518160020190600019169055505050600480548060010182816105df9190610854565b91600052602060002090600302016000839091909150600082015181600001906000191690556020820151816001019060001916905560408201518160020190600019169055505050600191505b509392505050565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561069257600080fd5b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561070757508173ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b15610715576000905061075b565b81600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b600080600061076d610829565b6002600086600019166000191681526020019081526020016000206060604051908101604052908160008201546000191660001916815260200160018201546000191660001916815260200160028201546000191660001916815250509050806000015193508060200151925080604001519150509193909250565b610320604051908101604052806019905b60008019168152602001906001900390816107fa5790505090565b602060405190810160405280600081525090565b6060604051908101604052806000801916815260200160008019168152602001600080191681525090565b815481835581811511610881576003028160030283600052602060002091820191016108809190610886565b5b505050565b6108ba91905b808211156108b657600080820160009055600182016000905560028201600090555060030161088c565b5090565b905600a165627a7a7230582046317822a8c1cc41183a305a569a173304b163e597276c159379fffea1d6c7df0029",
+  "sourceMap": "829:1647:1:-;;;128:10:2;120:5;;:18;;;;;;;;;;;;;;;;;;829:1647:1;;;;;;",
+  "deployedSourceMap": "829:1647:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;521:8:2;;;388:71;;;;;;;;;;;;;;2034:439:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;1133:575:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;714:184:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1716:310:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;388:71:2;212:5;;;;;;;;;;;198:19;;:10;:19;;;190:28;;;;;;;;445:5;;;;;;;;;;;432:19;;;2034:439:1;2101:26;;:::i;:::-;2129:18;;:::i;:::-;2149:19;;:::i;:::-;2181:27;;:::i;:::-;2263:6;2211:18;:35;2230:15;2211:35;;;;;;;;;;;;;;;;;2181:65;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2272:1;2263:10;;2259:207;2279:9;:16;2275:1;:20;2259:207;;;2337:9;2347:1;2337:12;;;;;;;;;;;;;;;;;;:25;;;2317:14;2332:1;2317:17;;;;;;;;;;;;:45;;;;;;;;;;;;;2389:9;2399:1;2389:12;;;;;;;;;;;;;;;;;;:18;;;2377:6;2384:1;2377:9;;;;;;;;;;;;:30;;;;;;;;;;;;;2435:9;2445:1;2435:12;;;;;;;;;;;;;;;;;;:19;;;2422:7;2430:1;2422:10;;;;;;;;;;;;:32;;;;;;;;;;;;;2297:3;;;;;;;2259:207;;;2034:439;;;;;;;:::o;1133:575::-;1220:4;1441:24;;:::i;:::-;1288:3;1241:50;;:16;:30;1258:12;1241:30;;;;;;;;;;;;;;;;;:43;;;:50;;;;;1237:68;;;1300:5;1293:12;;;;1237:68;1468:70;;;;;;;;;1493:12;1468:70;;;;;;;1514:5;1468:70;;;;;;;1529:6;1468:70;;;;;;1441:97;;1582:8;1549:16;:30;1566:12;1549:30;;;;;;;;;;;;;;;;;:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1601:18;:26;1620:6;1601:26;;;;;;;;;;;;;;;;;:41;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;1633:8;1601:41;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1653:10;:25;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;1669:8;1653:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1696:4;1689:11;;1133:575;;;;;;;:::o;714:184:0:-;770:4;212:5:2;;;;;;;;;;;198:19;;:10;:19;;;190:28;;;;;;;;798:3:0;791;;;;;;;;;;;:10;;;;:32;;;;;819:4;805:18;;:10;:18;;;;791:32;787:50;;;832:5;825:12;;;;787:50;864:4;858:3;;:10;;;;;;;;;;;;;;;;;;886:4;879:11;;229:1:2;714:184:0;;;:::o;1716:310:1:-;1779:20;1801:13;1816:14;1843:24;;:::i;:::-;1870:16;:31;1887:13;1870:31;;;;;;;;;;;;;;;;;1843:58;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1929:8;:21;;;1914:36;;1969:8;:14;;;1961:22;;2003:8;:15;;;1994:24;;1716:310;;;;;;:::o;829:1647::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.0;\r\n\r\nimport \"./Utility.sol\";\r\nimport \"./CMC.sol\";\r\n\r\ncontract DocumentStore is CMCEnabled {\r\n    bytes32 public DBIdentifier;\r\n\r\n    function getDB() internal view returns (DocumentStoreDB) {\r\n        return DocumentStoreDB(getContract(DBIdentifier));\r\n    }\r\n\r\n    function register(bytes32 documentHash, bytes32 title, bytes32 author) public returns (bool) {\r\n        return getDB().register(documentHash, title, author);\r\n    }\r\n\r\n    function getByHash(bytes32 requestedHash) public view returns (bytes32 documentHash, bytes32 title, bytes32 author) {\r\n        return getDB().getByHash(requestedHash);\r\n    }\r\n\r\n    function getByAuthor(bytes32 author) public view returns (bytes32[25] documentHashes, bytes32[25] titles, bytes32[25] authors) {\r\n        return getDB().getByAuthor(author);\r\n    }\r\n}\r\n\r\ncontract DocumentStoreDB is CMCEnabled {\r\n\r\n    struct Document {\r\n        bytes32 documentHash;\r\n        bytes32 title;\r\n        bytes32 author;\r\n    }\r\n\r\n    mapping (bytes32 => Document) _documentsByHash;\r\n    mapping (bytes32 => Document[]) _documentsByAuthor;\r\n    Document[] _documents;\r\n    \r\n    function register(bytes32 documentHash, bytes32 title, bytes32 author) public returns (bool) {\r\n        if (_documentsByHash[documentHash].documentHash != 0x0) return false; // Already registered, we can abort early.\r\n\r\n        // Not registered yet, compose a document and store it in the lookups.\r\n        Document memory document = Document({ documentHash: documentHash, title: title, author: author });\r\n        _documentsByHash[documentHash] = document;\r\n        _documentsByAuthor[author].push(document);\r\n        _documents.push(document);\r\n        return true;\r\n    }\r\n\r\n    function getByHash(bytes32 requestedHash) public view returns (bytes32 documentHash, bytes32 title, bytes32 author) {\r\n        Document memory document = _documentsByHash[requestedHash];\r\n\r\n        documentHash = document.documentHash;\r\n        title = document.title;\r\n        author = document.author;\r\n    }\r\n\r\n    function getByAuthor(bytes32 requestedAuthor) public view returns (bytes32[25] documentHashes, bytes32[25] titles, bytes32[25] authors) {\r\n        Document[] memory documents = _documentsByAuthor[requestedAuthor];\r\n\r\n        for(uint i = 0; i < documents.length; i++) {\r\n            documentHashes[i] = documents[i].documentHash;\r\n            titles[i] = documents[i].title;\r\n            authors[i] = documents[i].author;\r\n        }\r\n    }\r\n}",
+  "sourcePath": "C:\\Users\\nick\\Documents\\Howest\\Nick\\BDA-SEM2\\Blockchain Development II\\Taken\\DocumentStore\\contracts\\DocumentStore.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/DocumentStore.sol",
+      "exportedSymbols": {
+        "DocumentStore": [
+          197
+        ],
+        "DocumentStoreDB": [
+          368
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".0"
+          ]
+        },
+        "id": 116,
+        "name": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 428,
+          "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/Utility.sol",
+          "file": "./Utility.sol",
+          "scope": 369,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 117,
+        "name": "ImportDirective",
+        "src": "27:23:1"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 115,
+          "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/CMC.sol",
+          "file": "./CMC.sol",
+          "scope": 369,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 118,
+        "name": "ImportDirective",
+        "src": "52:19:1"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            114,
+            406,
+            419,
+            427
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            197,
+            114,
+            427,
+            419,
+            406
+          ],
+          "name": "DocumentStore",
+          "scope": 369
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CMCEnabled",
+                  "referencedDeclaration": 114,
+                  "type": "contract CMCEnabled"
+                },
+                "id": 119,
+                "name": "UserDefinedTypeName",
+                "src": "101:10:1"
+              }
+            ],
+            "id": 120,
+            "name": "InheritanceSpecifier",
+            "src": "101:10:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "DBIdentifier",
+              "scope": 197,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "bytes32",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "bytes32",
+                  "type": "bytes32"
+                },
+                "id": 121,
+                "name": "ElementaryTypeName",
+                "src": "119:7:1"
+              }
+            ],
+            "id": 122,
+            "name": "VariableDeclaration",
+            "src": "119:27:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getDB",
+              "payable": false,
+              "scope": 197,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 123,
+                "name": "ParameterList",
+                "src": "169:2:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 134,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "contract DocumentStoreDB",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "DocumentStoreDB",
+                          "referencedDeclaration": 368,
+                          "type": "contract DocumentStoreDB"
+                        },
+                        "id": 124,
+                        "name": "UserDefinedTypeName",
+                        "src": "195:15:1"
+                      }
+                    ],
+                    "id": 125,
+                    "name": "VariableDeclaration",
+                    "src": "195:15:1"
+                  }
+                ],
+                "id": 126,
+                "name": "ParameterList",
+                "src": "194:17:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 126
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "contract DocumentStoreDB",
+                          "type_conversion": true
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 368,
+                              "type": "type(contract DocumentStoreDB)",
+                              "value": "DocumentStoreDB"
+                            },
+                            "id": 127,
+                            "name": "Identifier",
+                            "src": "230:15:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "address",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_bytes32",
+                                      "typeString": "bytes32"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 113,
+                                  "type": "function (bytes32) view returns (address)",
+                                  "value": "getContract"
+                                },
+                                "id": 128,
+                                "name": "Identifier",
+                                "src": "246:11:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 122,
+                                  "type": "bytes32",
+                                  "value": "DBIdentifier"
+                                },
+                                "id": 129,
+                                "name": "Identifier",
+                                "src": "258:12:1"
+                              }
+                            ],
+                            "id": 130,
+                            "name": "FunctionCall",
+                            "src": "246:25:1"
+                          }
+                        ],
+                        "id": 131,
+                        "name": "FunctionCall",
+                        "src": "230:42:1"
+                      }
+                    ],
+                    "id": 132,
+                    "name": "Return",
+                    "src": "223:49:1"
+                  }
+                ],
+                "id": 133,
+                "name": "Block",
+                "src": "212:68:1"
+              }
+            ],
+            "id": 134,
+            "name": "FunctionDefinition",
+            "src": "155:125:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "register",
+              "payable": false,
+              "scope": 197,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHash",
+                      "scope": 154,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 135,
+                        "name": "ElementaryTypeName",
+                        "src": "306:7:1"
+                      }
+                    ],
+                    "id": 136,
+                    "name": "VariableDeclaration",
+                    "src": "306:20:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "title",
+                      "scope": 154,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 137,
+                        "name": "ElementaryTypeName",
+                        "src": "328:7:1"
+                      }
+                    ],
+                    "id": 138,
+                    "name": "VariableDeclaration",
+                    "src": "328:13:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "author",
+                      "scope": 154,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 139,
+                        "name": "ElementaryTypeName",
+                        "src": "343:7:1"
+                      }
+                    ],
+                    "id": 140,
+                    "name": "VariableDeclaration",
+                    "src": "343:14:1"
+                  }
+                ],
+                "id": 141,
+                "name": "ParameterList",
+                "src": "305:53:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 154,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 142,
+                        "name": "ElementaryTypeName",
+                        "src": "375:4:1"
+                      }
+                    ],
+                    "id": 143,
+                    "name": "VariableDeclaration",
+                    "src": "375:4:1"
+                  }
+                ],
+                "id": 144,
+                "name": "ParameterList",
+                "src": "374:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 144
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "bool",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                },
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "register",
+                              "referencedDeclaration": 268,
+                              "type": "function (bytes32,bytes32,bytes32) external returns (bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "arguments": [
+                                    null
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "contract DocumentStoreDB",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        null
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 134,
+                                      "type": "function () view returns (contract DocumentStoreDB)",
+                                      "value": "getDB"
+                                    },
+                                    "id": 145,
+                                    "name": "Identifier",
+                                    "src": "399:5:1"
+                                  }
+                                ],
+                                "id": 146,
+                                "name": "FunctionCall",
+                                "src": "399:7:1"
+                              }
+                            ],
+                            "id": 147,
+                            "name": "MemberAccess",
+                            "src": "399:16:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 136,
+                              "type": "bytes32",
+                              "value": "documentHash"
+                            },
+                            "id": 148,
+                            "name": "Identifier",
+                            "src": "416:12:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 138,
+                              "type": "bytes32",
+                              "value": "title"
+                            },
+                            "id": 149,
+                            "name": "Identifier",
+                            "src": "430:5:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 140,
+                              "type": "bytes32",
+                              "value": "author"
+                            },
+                            "id": 150,
+                            "name": "Identifier",
+                            "src": "437:6:1"
+                          }
+                        ],
+                        "id": 151,
+                        "name": "FunctionCall",
+                        "src": "399:45:1"
+                      }
+                    ],
+                    "id": 152,
+                    "name": "Return",
+                    "src": "392:52:1"
+                  }
+                ],
+                "id": 153,
+                "name": "Block",
+                "src": "381:71:1"
+              }
+            ],
+            "id": 154,
+            "name": "FunctionDefinition",
+            "src": "288:164:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getByHash",
+              "payable": false,
+              "scope": 197,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "requestedHash",
+                      "scope": 172,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 155,
+                        "name": "ElementaryTypeName",
+                        "src": "479:7:1"
+                      }
+                    ],
+                    "id": 156,
+                    "name": "VariableDeclaration",
+                    "src": "479:21:1"
+                  }
+                ],
+                "id": 157,
+                "name": "ParameterList",
+                "src": "478:23:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHash",
+                      "scope": 172,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 158,
+                        "name": "ElementaryTypeName",
+                        "src": "523:7:1"
+                      }
+                    ],
+                    "id": 159,
+                    "name": "VariableDeclaration",
+                    "src": "523:20:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "title",
+                      "scope": 172,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 160,
+                        "name": "ElementaryTypeName",
+                        "src": "545:7:1"
+                      }
+                    ],
+                    "id": 161,
+                    "name": "VariableDeclaration",
+                    "src": "545:13:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "author",
+                      "scope": 172,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 162,
+                        "name": "ElementaryTypeName",
+                        "src": "560:7:1"
+                      }
+                    ],
+                    "id": 163,
+                    "name": "VariableDeclaration",
+                    "src": "560:14:1"
+                  }
+                ],
+                "id": 164,
+                "name": "ParameterList",
+                "src": "522:53:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 164
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple(bytes32,bytes32,bytes32)",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "getByHash",
+                              "referencedDeclaration": 301,
+                              "type": "function (bytes32) view external returns (bytes32,bytes32,bytes32)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "arguments": [
+                                    null
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "contract DocumentStoreDB",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        null
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 134,
+                                      "type": "function () view returns (contract DocumentStoreDB)",
+                                      "value": "getDB"
+                                    },
+                                    "id": 165,
+                                    "name": "Identifier",
+                                    "src": "594:5:1"
+                                  }
+                                ],
+                                "id": 166,
+                                "name": "FunctionCall",
+                                "src": "594:7:1"
+                              }
+                            ],
+                            "id": 167,
+                            "name": "MemberAccess",
+                            "src": "594:17:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 156,
+                              "type": "bytes32",
+                              "value": "requestedHash"
+                            },
+                            "id": 168,
+                            "name": "Identifier",
+                            "src": "612:13:1"
+                          }
+                        ],
+                        "id": 169,
+                        "name": "FunctionCall",
+                        "src": "594:32:1"
+                      }
+                    ],
+                    "id": 170,
+                    "name": "Return",
+                    "src": "587:39:1"
+                  }
+                ],
+                "id": 171,
+                "name": "Block",
+                "src": "576:58:1"
+              }
+            ],
+            "id": 172,
+            "name": "FunctionDefinition",
+            "src": "460:174:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getByAuthor",
+              "payable": false,
+              "scope": 197,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "author",
+                      "scope": 196,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 173,
+                        "name": "ElementaryTypeName",
+                        "src": "663:7:1"
+                      }
+                    ],
+                    "id": 174,
+                    "name": "VariableDeclaration",
+                    "src": "663:14:1"
+                  }
+                ],
+                "id": 175,
+                "name": "ParameterList",
+                "src": "662:16:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHashes",
+                      "scope": 196,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 176,
+                            "name": "ElementaryTypeName",
+                            "src": "700:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 177,
+                            "name": "Literal",
+                            "src": "708:2:1"
+                          }
+                        ],
+                        "id": 178,
+                        "name": "ArrayTypeName",
+                        "src": "700:11:1"
+                      }
+                    ],
+                    "id": 179,
+                    "name": "VariableDeclaration",
+                    "src": "700:26:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "titles",
+                      "scope": 196,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 180,
+                            "name": "ElementaryTypeName",
+                            "src": "728:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 181,
+                            "name": "Literal",
+                            "src": "736:2:1"
+                          }
+                        ],
+                        "id": 182,
+                        "name": "ArrayTypeName",
+                        "src": "728:11:1"
+                      }
+                    ],
+                    "id": 183,
+                    "name": "VariableDeclaration",
+                    "src": "728:18:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "authors",
+                      "scope": 196,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 184,
+                            "name": "ElementaryTypeName",
+                            "src": "748:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 185,
+                            "name": "Literal",
+                            "src": "756:2:1"
+                          }
+                        ],
+                        "id": 186,
+                        "name": "ArrayTypeName",
+                        "src": "748:11:1"
+                      }
+                    ],
+                    "id": 187,
+                    "name": "VariableDeclaration",
+                    "src": "748:19:1"
+                  }
+                ],
+                "id": 188,
+                "name": "ParameterList",
+                "src": "699:69:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 188
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple(bytes32[25] memory,bytes32[25] memory,bytes32[25] memory)",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes32",
+                                  "typeString": "bytes32"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "getByAuthor",
+                              "referencedDeclaration": 367,
+                              "type": "function (bytes32) view external returns (bytes32[25] memory,bytes32[25] memory,bytes32[25] memory)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "arguments": [
+                                    null
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "contract DocumentStoreDB",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        null
+                                      ],
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 134,
+                                      "type": "function () view returns (contract DocumentStoreDB)",
+                                      "value": "getDB"
+                                    },
+                                    "id": 189,
+                                    "name": "Identifier",
+                                    "src": "787:5:1"
+                                  }
+                                ],
+                                "id": 190,
+                                "name": "FunctionCall",
+                                "src": "787:7:1"
+                              }
+                            ],
+                            "id": 191,
+                            "name": "MemberAccess",
+                            "src": "787:19:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 174,
+                              "type": "bytes32",
+                              "value": "author"
+                            },
+                            "id": 192,
+                            "name": "Identifier",
+                            "src": "807:6:1"
+                          }
+                        ],
+                        "id": 193,
+                        "name": "FunctionCall",
+                        "src": "787:27:1"
+                      }
+                    ],
+                    "id": 194,
+                    "name": "Return",
+                    "src": "780:34:1"
+                  }
+                ],
+                "id": 195,
+                "name": "Block",
+                "src": "769:53:1"
+              }
+            ],
+            "id": 196,
+            "name": "FunctionDefinition",
+            "src": "642:180:1"
+          }
+        ],
+        "id": 197,
+        "name": "ContractDefinition",
+        "src": "75:750:1"
+      },
+      {
+        "attributes": {
+          "contractDependencies": [
+            114,
+            406,
+            419,
+            427
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            368,
+            114,
+            427,
+            419,
+            406
+          ],
+          "name": "DocumentStoreDB",
+          "scope": 369
+        },
+        "children": [
+          {
+            "attributes": {
+              "arguments": [
+                null
+              ]
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "CMCEnabled",
+                  "referencedDeclaration": 114,
+                  "type": "contract CMCEnabled"
+                },
+                "id": 198,
+                "name": "UserDefinedTypeName",
+                "src": "857:10:1"
+              }
+            ],
+            "id": 199,
+            "name": "InheritanceSpecifier",
+            "src": "857:10:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "DocumentStoreDB.Document",
+              "name": "Document",
+              "scope": 368,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "documentHash",
+                  "scope": 206,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 200,
+                    "name": "ElementaryTypeName",
+                    "src": "904:7:1"
+                  }
+                ],
+                "id": 201,
+                "name": "VariableDeclaration",
+                "src": "904:20:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "title",
+                  "scope": 206,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 202,
+                    "name": "ElementaryTypeName",
+                    "src": "935:7:1"
+                  }
+                ],
+                "id": 203,
+                "name": "VariableDeclaration",
+                "src": "935:13:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "author",
+                  "scope": 206,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bytes32",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 204,
+                    "name": "ElementaryTypeName",
+                    "src": "959:7:1"
+                  }
+                ],
+                "id": 205,
+                "name": "VariableDeclaration",
+                "src": "959:14:1"
+              }
+            ],
+            "id": 206,
+            "name": "StructDefinition",
+            "src": "877:104:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "_documentsByHash",
+              "scope": 368,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 207,
+                    "name": "ElementaryTypeName",
+                    "src": "998:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Document",
+                      "referencedDeclaration": 206,
+                      "type": "struct DocumentStoreDB.Document storage pointer"
+                    },
+                    "id": 208,
+                    "name": "UserDefinedTypeName",
+                    "src": "1009:8:1"
+                  }
+                ],
+                "id": 209,
+                "name": "Mapping",
+                "src": "989:29:1"
+              }
+            ],
+            "id": 210,
+            "name": "VariableDeclaration",
+            "src": "989:46:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "_documentsByAuthor",
+              "scope": 368,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref[] storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref[] storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bytes32",
+                      "type": "bytes32"
+                    },
+                    "id": 211,
+                    "name": "ElementaryTypeName",
+                    "src": "1051:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "length": null,
+                      "type": "struct DocumentStoreDB.Document storage ref[] storage pointer"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "Document",
+                          "referencedDeclaration": 206,
+                          "type": "struct DocumentStoreDB.Document storage pointer"
+                        },
+                        "id": 212,
+                        "name": "UserDefinedTypeName",
+                        "src": "1062:8:1"
+                      }
+                    ],
+                    "id": 213,
+                    "name": "ArrayTypeName",
+                    "src": "1062:10:1"
+                  }
+                ],
+                "id": 214,
+                "name": "Mapping",
+                "src": "1042:31:1"
+              }
+            ],
+            "id": 215,
+            "name": "VariableDeclaration",
+            "src": "1042:50:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "_documents",
+              "scope": 368,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct DocumentStoreDB.Document storage ref[] storage ref",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "struct DocumentStoreDB.Document storage ref[] storage pointer"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Document",
+                      "referencedDeclaration": 206,
+                      "type": "struct DocumentStoreDB.Document storage pointer"
+                    },
+                    "id": 216,
+                    "name": "UserDefinedTypeName",
+                    "src": "1099:8:1"
+                  }
+                ],
+                "id": 217,
+                "name": "ArrayTypeName",
+                "src": "1099:10:1"
+              }
+            ],
+            "id": 218,
+            "name": "VariableDeclaration",
+            "src": "1099:21:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "register",
+              "payable": false,
+              "scope": 368,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHash",
+                      "scope": 268,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 219,
+                        "name": "ElementaryTypeName",
+                        "src": "1151:7:1"
+                      }
+                    ],
+                    "id": 220,
+                    "name": "VariableDeclaration",
+                    "src": "1151:20:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "title",
+                      "scope": 268,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 221,
+                        "name": "ElementaryTypeName",
+                        "src": "1173:7:1"
+                      }
+                    ],
+                    "id": 222,
+                    "name": "VariableDeclaration",
+                    "src": "1173:13:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "author",
+                      "scope": 268,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 223,
+                        "name": "ElementaryTypeName",
+                        "src": "1188:7:1"
+                      }
+                    ],
+                    "id": 224,
+                    "name": "VariableDeclaration",
+                    "src": "1188:14:1"
+                  }
+                ],
+                "id": 225,
+                "name": "ParameterList",
+                "src": "1150:53:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 268,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 226,
+                        "name": "ElementaryTypeName",
+                        "src": "1220:4:1"
+                      }
+                    ],
+                    "id": 227,
+                    "name": "VariableDeclaration",
+                    "src": "1220:4:1"
+                  }
+                ],
+                "id": 228,
+                "name": "ParameterList",
+                "src": "1219:6:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "falseBody": null
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "!=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "documentHash",
+                              "referencedDeclaration": 201,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct DocumentStoreDB.Document storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 210,
+                                      "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref)",
+                                      "value": "_documentsByHash"
+                                    },
+                                    "id": 229,
+                                    "name": "Identifier",
+                                    "src": "1241:16:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 220,
+                                      "type": "bytes32",
+                                      "value": "documentHash"
+                                    },
+                                    "id": 230,
+                                    "name": "Identifier",
+                                    "src": "1258:12:1"
+                                  }
+                                ],
+                                "id": 231,
+                                "name": "IndexAccess",
+                                "src": "1241:30:1"
+                              }
+                            ],
+                            "id": 232,
+                            "name": "MemberAccess",
+                            "src": "1241:43:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "307830",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0x0"
+                            },
+                            "id": 233,
+                            "name": "Literal",
+                            "src": "1288:3:1"
+                          }
+                        ],
+                        "id": 234,
+                        "name": "BinaryOperation",
+                        "src": "1241:50:1"
+                      },
+                      {
+                        "attributes": {
+                          "functionReturnParameters": 228
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "66616c7365",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "false"
+                            },
+                            "id": 235,
+                            "name": "Literal",
+                            "src": "1300:5:1"
+                          }
+                        ],
+                        "id": 236,
+                        "name": "Return",
+                        "src": "1293:12:1"
+                      }
+                    ],
+                    "id": 237,
+                    "name": "IfStatement",
+                    "src": "1237:68:1"
+                  },
+                  {
+                    "attributes": {
+                      "assignments": [
+                        239
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "document",
+                          "scope": 268,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct DocumentStoreDB.Document memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Document",
+                              "referencedDeclaration": 206,
+                              "type": "struct DocumentStoreDB.Document storage pointer"
+                            },
+                            "id": 238,
+                            "name": "UserDefinedTypeName",
+                            "src": "1441:8:1"
+                          }
+                        ],
+                        "id": 239,
+                        "name": "VariableDeclaration",
+                        "src": "1441:24:1"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": true,
+                          "lValueRequested": false,
+                          "names": [
+                            "documentHash",
+                            "title",
+                            "author"
+                          ],
+                          "type": "struct DocumentStoreDB.Document memory",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 206,
+                              "type": "type(struct DocumentStoreDB.Document storage pointer)",
+                              "value": "Document"
+                            },
+                            "id": 240,
+                            "name": "Identifier",
+                            "src": "1468:8:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 220,
+                              "type": "bytes32",
+                              "value": "documentHash"
+                            },
+                            "id": 241,
+                            "name": "Identifier",
+                            "src": "1493:12:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 222,
+                              "type": "bytes32",
+                              "value": "title"
+                            },
+                            "id": 242,
+                            "name": "Identifier",
+                            "src": "1514:5:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 224,
+                              "type": "bytes32",
+                              "value": "author"
+                            },
+                            "id": 243,
+                            "name": "Identifier",
+                            "src": "1529:6:1"
+                          }
+                        ],
+                        "id": 244,
+                        "name": "FunctionCall",
+                        "src": "1468:70:1"
+                      }
+                    ],
+                    "id": 245,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1441:97:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct DocumentStoreDB.Document storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct DocumentStoreDB.Document storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 210,
+                                  "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref)",
+                                  "value": "_documentsByHash"
+                                },
+                                "id": 246,
+                                "name": "Identifier",
+                                "src": "1549:16:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 220,
+                                  "type": "bytes32",
+                                  "value": "documentHash"
+                                },
+                                "id": 247,
+                                "name": "Identifier",
+                                "src": "1566:12:1"
+                              }
+                            ],
+                            "id": 248,
+                            "name": "IndexAccess",
+                            "src": "1549:30:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 239,
+                              "type": "struct DocumentStoreDB.Document memory",
+                              "value": "document"
+                            },
+                            "id": 249,
+                            "name": "Identifier",
+                            "src": "1582:8:1"
+                          }
+                        ],
+                        "id": 250,
+                        "name": "Assignment",
+                        "src": "1549:41:1"
+                      }
+                    ],
+                    "id": 251,
+                    "name": "ExpressionStatement",
+                    "src": "1549:41:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Document_$206_memory_ptr",
+                                  "typeString": "struct DocumentStoreDB.Document memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct DocumentStoreDB.Document storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct DocumentStoreDB.Document storage ref[] storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 215,
+                                      "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref[] storage ref)",
+                                      "value": "_documentsByAuthor"
+                                    },
+                                    "id": 252,
+                                    "name": "Identifier",
+                                    "src": "1601:18:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 224,
+                                      "type": "bytes32",
+                                      "value": "author"
+                                    },
+                                    "id": 253,
+                                    "name": "Identifier",
+                                    "src": "1620:6:1"
+                                  }
+                                ],
+                                "id": 254,
+                                "name": "IndexAccess",
+                                "src": "1601:26:1"
+                              }
+                            ],
+                            "id": 255,
+                            "name": "MemberAccess",
+                            "src": "1601:31:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 239,
+                              "type": "struct DocumentStoreDB.Document memory",
+                              "value": "document"
+                            },
+                            "id": 256,
+                            "name": "Identifier",
+                            "src": "1633:8:1"
+                          }
+                        ],
+                        "id": 257,
+                        "name": "FunctionCall",
+                        "src": "1601:41:1"
+                      }
+                    ],
+                    "id": 258,
+                    "name": "ExpressionStatement",
+                    "src": "1601:41:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_struct$_Document_$206_memory_ptr",
+                                  "typeString": "struct DocumentStoreDB.Document memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (struct DocumentStoreDB.Document storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 218,
+                                  "type": "struct DocumentStoreDB.Document storage ref[] storage ref",
+                                  "value": "_documents"
+                                },
+                                "id": 259,
+                                "name": "Identifier",
+                                "src": "1653:10:1"
+                              }
+                            ],
+                            "id": 261,
+                            "name": "MemberAccess",
+                            "src": "1653:15:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 239,
+                              "type": "struct DocumentStoreDB.Document memory",
+                              "value": "document"
+                            },
+                            "id": 262,
+                            "name": "Identifier",
+                            "src": "1669:8:1"
+                          }
+                        ],
+                        "id": 263,
+                        "name": "FunctionCall",
+                        "src": "1653:25:1"
+                      }
+                    ],
+                    "id": 264,
+                    "name": "ExpressionStatement",
+                    "src": "1653:25:1"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 228
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "hexvalue": "74727565",
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "subdenomination": null,
+                          "token": "bool",
+                          "type": "bool",
+                          "value": "true"
+                        },
+                        "id": 265,
+                        "name": "Literal",
+                        "src": "1696:4:1"
+                      }
+                    ],
+                    "id": 266,
+                    "name": "Return",
+                    "src": "1689:11:1"
+                  }
+                ],
+                "id": 267,
+                "name": "Block",
+                "src": "1226:482:1"
+              }
+            ],
+            "id": 268,
+            "name": "FunctionDefinition",
+            "src": "1133:575:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getByHash",
+              "payable": false,
+              "scope": 368,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "requestedHash",
+                      "scope": 301,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 269,
+                        "name": "ElementaryTypeName",
+                        "src": "1735:7:1"
+                      }
+                    ],
+                    "id": 270,
+                    "name": "VariableDeclaration",
+                    "src": "1735:21:1"
+                  }
+                ],
+                "id": 271,
+                "name": "ParameterList",
+                "src": "1734:23:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHash",
+                      "scope": 301,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 272,
+                        "name": "ElementaryTypeName",
+                        "src": "1779:7:1"
+                      }
+                    ],
+                    "id": 273,
+                    "name": "VariableDeclaration",
+                    "src": "1779:20:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "title",
+                      "scope": 301,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 274,
+                        "name": "ElementaryTypeName",
+                        "src": "1801:7:1"
+                      }
+                    ],
+                    "id": 275,
+                    "name": "VariableDeclaration",
+                    "src": "1801:13:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "author",
+                      "scope": 301,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 276,
+                        "name": "ElementaryTypeName",
+                        "src": "1816:7:1"
+                      }
+                    ],
+                    "id": 277,
+                    "name": "VariableDeclaration",
+                    "src": "1816:14:1"
+                  }
+                ],
+                "id": 278,
+                "name": "ParameterList",
+                "src": "1778:53:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        280
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "document",
+                          "scope": 301,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct DocumentStoreDB.Document memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "contractScope": null,
+                              "name": "Document",
+                              "referencedDeclaration": 206,
+                              "type": "struct DocumentStoreDB.Document storage pointer"
+                            },
+                            "id": 279,
+                            "name": "UserDefinedTypeName",
+                            "src": "1843:8:1"
+                          }
+                        ],
+                        "id": 280,
+                        "name": "VariableDeclaration",
+                        "src": "1843:24:1"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "struct DocumentStoreDB.Document storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 210,
+                              "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref)",
+                              "value": "_documentsByHash"
+                            },
+                            "id": 281,
+                            "name": "Identifier",
+                            "src": "1870:16:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 270,
+                              "type": "bytes32",
+                              "value": "requestedHash"
+                            },
+                            "id": 282,
+                            "name": "Identifier",
+                            "src": "1887:13:1"
+                          }
+                        ],
+                        "id": 283,
+                        "name": "IndexAccess",
+                        "src": "1870:31:1"
+                      }
+                    ],
+                    "id": 284,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1843:58:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bytes32"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 273,
+                              "type": "bytes32",
+                              "value": "documentHash"
+                            },
+                            "id": 285,
+                            "name": "Identifier",
+                            "src": "1914:12:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "documentHash",
+                              "referencedDeclaration": 201,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 280,
+                                  "type": "struct DocumentStoreDB.Document memory",
+                                  "value": "document"
+                                },
+                                "id": 286,
+                                "name": "Identifier",
+                                "src": "1929:8:1"
+                              }
+                            ],
+                            "id": 287,
+                            "name": "MemberAccess",
+                            "src": "1929:21:1"
+                          }
+                        ],
+                        "id": 288,
+                        "name": "Assignment",
+                        "src": "1914:36:1"
+                      }
+                    ],
+                    "id": 289,
+                    "name": "ExpressionStatement",
+                    "src": "1914:36:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bytes32"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 275,
+                              "type": "bytes32",
+                              "value": "title"
+                            },
+                            "id": 290,
+                            "name": "Identifier",
+                            "src": "1961:5:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "title",
+                              "referencedDeclaration": 203,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 280,
+                                  "type": "struct DocumentStoreDB.Document memory",
+                                  "value": "document"
+                                },
+                                "id": 291,
+                                "name": "Identifier",
+                                "src": "1969:8:1"
+                              }
+                            ],
+                            "id": 292,
+                            "name": "MemberAccess",
+                            "src": "1969:14:1"
+                          }
+                        ],
+                        "id": 293,
+                        "name": "Assignment",
+                        "src": "1961:22:1"
+                      }
+                    ],
+                    "id": 294,
+                    "name": "ExpressionStatement",
+                    "src": "1961:22:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bytes32"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 277,
+                              "type": "bytes32",
+                              "value": "author"
+                            },
+                            "id": 295,
+                            "name": "Identifier",
+                            "src": "1994:6:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "author",
+                              "referencedDeclaration": 205,
+                              "type": "bytes32"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 280,
+                                  "type": "struct DocumentStoreDB.Document memory",
+                                  "value": "document"
+                                },
+                                "id": 296,
+                                "name": "Identifier",
+                                "src": "2003:8:1"
+                              }
+                            ],
+                            "id": 297,
+                            "name": "MemberAccess",
+                            "src": "2003:15:1"
+                          }
+                        ],
+                        "id": 298,
+                        "name": "Assignment",
+                        "src": "1994:24:1"
+                      }
+                    ],
+                    "id": 299,
+                    "name": "ExpressionStatement",
+                    "src": "1994:24:1"
+                  }
+                ],
+                "id": 300,
+                "name": "Block",
+                "src": "1832:194:1"
+              }
+            ],
+            "id": 301,
+            "name": "FunctionDefinition",
+            "src": "1716:310:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getByAuthor",
+              "payable": false,
+              "scope": 368,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "requestedAuthor",
+                      "scope": 367,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bytes32",
+                          "type": "bytes32"
+                        },
+                        "id": 302,
+                        "name": "ElementaryTypeName",
+                        "src": "2055:7:1"
+                      }
+                    ],
+                    "id": 303,
+                    "name": "VariableDeclaration",
+                    "src": "2055:23:1"
+                  }
+                ],
+                "id": 304,
+                "name": "ParameterList",
+                "src": "2054:25:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "documentHashes",
+                      "scope": 367,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 305,
+                            "name": "ElementaryTypeName",
+                            "src": "2101:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 306,
+                            "name": "Literal",
+                            "src": "2109:2:1"
+                          }
+                        ],
+                        "id": 307,
+                        "name": "ArrayTypeName",
+                        "src": "2101:11:1"
+                      }
+                    ],
+                    "id": 308,
+                    "name": "VariableDeclaration",
+                    "src": "2101:26:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "titles",
+                      "scope": 367,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 309,
+                            "name": "ElementaryTypeName",
+                            "src": "2129:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 310,
+                            "name": "Literal",
+                            "src": "2137:2:1"
+                          }
+                        ],
+                        "id": 311,
+                        "name": "ArrayTypeName",
+                        "src": "2129:11:1"
+                      }
+                    ],
+                    "id": 312,
+                    "name": "VariableDeclaration",
+                    "src": "2129:18:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "authors",
+                      "scope": 367,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bytes32[25] memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "type": "bytes32[25] storage pointer"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "bytes32",
+                              "type": "bytes32"
+                            },
+                            "id": 313,
+                            "name": "ElementaryTypeName",
+                            "src": "2149:7:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "3235",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 25",
+                              "value": "25"
+                            },
+                            "id": 314,
+                            "name": "Literal",
+                            "src": "2157:2:1"
+                          }
+                        ],
+                        "id": 315,
+                        "name": "ArrayTypeName",
+                        "src": "2149:11:1"
+                      }
+                    ],
+                    "id": 316,
+                    "name": "VariableDeclaration",
+                    "src": "2149:19:1"
+                  }
+                ],
+                "id": 317,
+                "name": "ParameterList",
+                "src": "2100:69:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        321
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "name": "documents",
+                          "scope": 367,
+                          "stateVariable": false,
+                          "storageLocation": "memory",
+                          "type": "struct DocumentStoreDB.Document memory[] memory",
+                          "value": null,
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "length": null,
+                              "type": "struct DocumentStoreDB.Document storage ref[] storage pointer"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "contractScope": null,
+                                  "name": "Document",
+                                  "referencedDeclaration": 206,
+                                  "type": "struct DocumentStoreDB.Document storage pointer"
+                                },
+                                "id": 319,
+                                "name": "UserDefinedTypeName",
+                                "src": "2181:8:1"
+                              }
+                            ],
+                            "id": 320,
+                            "name": "ArrayTypeName",
+                            "src": "2181:10:1"
+                          }
+                        ],
+                        "id": 321,
+                        "name": "VariableDeclaration",
+                        "src": "2181:27:1"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "struct DocumentStoreDB.Document storage ref[] storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 215,
+                              "type": "mapping(bytes32 => struct DocumentStoreDB.Document storage ref[] storage ref)",
+                              "value": "_documentsByAuthor"
+                            },
+                            "id": 322,
+                            "name": "Identifier",
+                            "src": "2211:18:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 303,
+                              "type": "bytes32",
+                              "value": "requestedAuthor"
+                            },
+                            "id": 323,
+                            "name": "Identifier",
+                            "src": "2230:15:1"
+                          }
+                        ],
+                        "id": 324,
+                        "name": "IndexAccess",
+                        "src": "2211:35:1"
+                      }
+                    ],
+                    "id": 325,
+                    "name": "VariableDeclarationStatement",
+                    "src": "2181:65:1"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "assignments": [
+                            327
+                          ]
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "constant": false,
+                              "name": "i",
+                              "scope": 367,
+                              "stateVariable": false,
+                              "storageLocation": "default",
+                              "type": "uint256",
+                              "value": null,
+                              "visibility": "internal"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "name": "uint",
+                                  "type": "uint256"
+                                },
+                                "id": 326,
+                                "name": "ElementaryTypeName",
+                                "src": "2263:4:1"
+                              }
+                            ],
+                            "id": 327,
+                            "name": "VariableDeclaration",
+                            "src": "2263:6:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "30",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "number",
+                              "type": "int_const 0",
+                              "value": "0"
+                            },
+                            "id": 328,
+                            "name": "Literal",
+                            "src": "2272:1:1"
+                          }
+                        ],
+                        "id": 329,
+                        "name": "VariableDeclarationStatement",
+                        "src": "2263:10:1"
+                      },
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 327,
+                              "type": "uint256",
+                              "value": "i"
+                            },
+                            "id": 330,
+                            "name": "Identifier",
+                            "src": "2275:1:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "length",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 321,
+                                  "type": "struct DocumentStoreDB.Document memory[] memory",
+                                  "value": "documents"
+                                },
+                                "id": 331,
+                                "name": "Identifier",
+                                "src": "2279:9:1"
+                              }
+                            ],
+                            "id": 332,
+                            "name": "MemberAccess",
+                            "src": "2279:16:1"
+                          }
+                        ],
+                        "id": 333,
+                        "name": "BinaryOperation",
+                        "src": "2275:20:1"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "++",
+                              "prefix": false,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 327,
+                                  "type": "uint256",
+                                  "value": "i"
+                                },
+                                "id": 334,
+                                "name": "Identifier",
+                                "src": "2297:1:1"
+                              }
+                            ],
+                            "id": 335,
+                            "name": "UnaryOperation",
+                            "src": "2297:3:1"
+                          }
+                        ],
+                        "id": 336,
+                        "name": "ExpressionStatement",
+                        "src": "2297:3:1"
+                      },
+                      {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "=",
+                                  "type": "bytes32"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": true,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 308,
+                                          "type": "bytes32[25] memory",
+                                          "value": "documentHashes"
+                                        },
+                                        "id": 337,
+                                        "name": "Identifier",
+                                        "src": "2317:14:1"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 327,
+                                          "type": "uint256",
+                                          "value": "i"
+                                        },
+                                        "id": 338,
+                                        "name": "Identifier",
+                                        "src": "2332:1:1"
+                                      }
+                                    ],
+                                    "id": 339,
+                                    "name": "IndexAccess",
+                                    "src": "2317:17:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "documentHash",
+                                      "referencedDeclaration": 201,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "struct DocumentStoreDB.Document memory"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 321,
+                                              "type": "struct DocumentStoreDB.Document memory[] memory",
+                                              "value": "documents"
+                                            },
+                                            "id": 340,
+                                            "name": "Identifier",
+                                            "src": "2337:9:1"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 327,
+                                              "type": "uint256",
+                                              "value": "i"
+                                            },
+                                            "id": 341,
+                                            "name": "Identifier",
+                                            "src": "2347:1:1"
+                                          }
+                                        ],
+                                        "id": 342,
+                                        "name": "IndexAccess",
+                                        "src": "2337:12:1"
+                                      }
+                                    ],
+                                    "id": 343,
+                                    "name": "MemberAccess",
+                                    "src": "2337:25:1"
+                                  }
+                                ],
+                                "id": 344,
+                                "name": "Assignment",
+                                "src": "2317:45:1"
+                              }
+                            ],
+                            "id": 345,
+                            "name": "ExpressionStatement",
+                            "src": "2317:45:1"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "=",
+                                  "type": "bytes32"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": true,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 312,
+                                          "type": "bytes32[25] memory",
+                                          "value": "titles"
+                                        },
+                                        "id": 346,
+                                        "name": "Identifier",
+                                        "src": "2377:6:1"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 327,
+                                          "type": "uint256",
+                                          "value": "i"
+                                        },
+                                        "id": 347,
+                                        "name": "Identifier",
+                                        "src": "2384:1:1"
+                                      }
+                                    ],
+                                    "id": 348,
+                                    "name": "IndexAccess",
+                                    "src": "2377:9:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "title",
+                                      "referencedDeclaration": 203,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "struct DocumentStoreDB.Document memory"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 321,
+                                              "type": "struct DocumentStoreDB.Document memory[] memory",
+                                              "value": "documents"
+                                            },
+                                            "id": 349,
+                                            "name": "Identifier",
+                                            "src": "2389:9:1"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 327,
+                                              "type": "uint256",
+                                              "value": "i"
+                                            },
+                                            "id": 350,
+                                            "name": "Identifier",
+                                            "src": "2399:1:1"
+                                          }
+                                        ],
+                                        "id": 351,
+                                        "name": "IndexAccess",
+                                        "src": "2389:12:1"
+                                      }
+                                    ],
+                                    "id": 352,
+                                    "name": "MemberAccess",
+                                    "src": "2389:18:1"
+                                  }
+                                ],
+                                "id": 353,
+                                "name": "Assignment",
+                                "src": "2377:30:1"
+                              }
+                            ],
+                            "id": 354,
+                            "name": "ExpressionStatement",
+                            "src": "2377:30:1"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "=",
+                                  "type": "bytes32"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": true,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 316,
+                                          "type": "bytes32[25] memory",
+                                          "value": "authors"
+                                        },
+                                        "id": 355,
+                                        "name": "Identifier",
+                                        "src": "2422:7:1"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 327,
+                                          "type": "uint256",
+                                          "value": "i"
+                                        },
+                                        "id": 356,
+                                        "name": "Identifier",
+                                        "src": "2430:1:1"
+                                      }
+                                    ],
+                                    "id": 357,
+                                    "name": "IndexAccess",
+                                    "src": "2422:10:1"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "author",
+                                      "referencedDeclaration": 205,
+                                      "type": "bytes32"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": true,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "type": "struct DocumentStoreDB.Document memory"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 321,
+                                              "type": "struct DocumentStoreDB.Document memory[] memory",
+                                              "value": "documents"
+                                            },
+                                            "id": 358,
+                                            "name": "Identifier",
+                                            "src": "2435:9:1"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": 327,
+                                              "type": "uint256",
+                                              "value": "i"
+                                            },
+                                            "id": 359,
+                                            "name": "Identifier",
+                                            "src": "2445:1:1"
+                                          }
+                                        ],
+                                        "id": 360,
+                                        "name": "IndexAccess",
+                                        "src": "2435:12:1"
+                                      }
+                                    ],
+                                    "id": 361,
+                                    "name": "MemberAccess",
+                                    "src": "2435:19:1"
+                                  }
+                                ],
+                                "id": 362,
+                                "name": "Assignment",
+                                "src": "2422:32:1"
+                              }
+                            ],
+                            "id": 363,
+                            "name": "ExpressionStatement",
+                            "src": "2422:32:1"
+                          }
+                        ],
+                        "id": 364,
+                        "name": "Block",
+                        "src": "2302:164:1"
+                      }
+                    ],
+                    "id": 365,
+                    "name": "ForStatement",
+                    "src": "2259:207:1"
+                  }
+                ],
+                "id": 366,
+                "name": "Block",
+                "src": "2170:303:1"
+              }
+            ],
+            "id": 367,
+            "name": "FunctionDefinition",
+            "src": "2034:439:1"
+          }
+        ],
+        "id": 368,
+        "name": "ContractDefinition",
+        "src": "829:1647:1"
+      }
+    ],
+    "id": 369,
+    "name": "SourceUnit",
+    "src": "0:2476:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-04-05T21:51:42.708Z"
+}
