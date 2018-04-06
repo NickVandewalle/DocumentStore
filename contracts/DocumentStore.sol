@@ -1,10 +1,75 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.17;
 
-import "./Utility.sol";
-import "./CMC.sol";
+contract Restricted {
+    address owner;
+    
+    function Restricted() public {
+        owner = msg.sender;
+    }
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
+    modifier onlyBy(address account) {
+        require(msg.sender == account);
+        _;
+    }
+}
+
+contract Mortal is Restricted {
+    function kill() onlyOwner public {
+        selfdestruct(owner);
+    }
+}
+
+contract Rejector {
+    function () public {
+        revert();
+    }
+}
+
+contract CMC is Mortal, Rejector {
+    mapping (bytes32 => address) _contracts;
+    
+    function addContract(bytes32 identifier, address contractAddress) public onlyOwner {
+        _contracts[identifier] = contractAddress;
+    }
+    
+    function removeContract(bytes32 identifier) public onlyOwner returns (bool) {
+        if (_contracts[identifier] == 0x0) return false;
+        
+        _contracts[identifier] = 0x0;
+        return true;
+    }
+    
+    function getContract(bytes32 name) public view returns (address) {
+        return _contracts[name];
+    }
+}
+
+contract CMCEnabled is Mortal, Rejector {    
+    address cmc;
+    
+    function setCMC(address cmc_) public onlyOwner returns (bool) {
+        if (cmc != 0x0 && msg.sender != cmc_) return false;
+        
+        cmc = cmc_;
+        return true;
+    }
+    
+    function getContract(bytes32 identifier) internal view returns (address) {
+        return CMC(cmc).getContract(identifier);
+    }
+}
 
 contract DocumentStore is CMCEnabled {
     bytes32 public DBIdentifier;
+
+    function setDBIdentifier(bytes32 identifier) public {
+        DBIdentifier = identifier;
+    }
 
     function getDB() internal view returns (DocumentStoreDB) {
         return DocumentStoreDB(getContract(DBIdentifier));
