@@ -122,6 +122,7 @@ contract DocumentStoreDB is CMCEnabled {
     function getByAuthor(bytes32 requestedAuthor) public view returns (bytes32[25] documentHashes, bytes32[25] titles, bytes32[25] authors) {
         Document[] memory documents = _documentsByAuthor[requestedAuthor];
 
+        // todo: this needs to be expanded to support paging.
         for(uint i = 0; i < documents.length; i++) {
             documentHashes[i] = documents[i].documentHash;
             titles[i] = documents[i].title;
