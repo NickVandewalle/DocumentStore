@@ -102,5 +102,4 @@ contract TestDocumentManager {
         amountOfDocuments = documentManager.getAmountOfDocumentsFromAuthor("Eddy");
         Assert.equal(1, amountOfDocuments, "The amount of registered documents for 'Eddy' should be 1");
     }
-
 }
