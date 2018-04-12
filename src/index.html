@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Letter of Credit</title>
+    <title>Document store</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,10 +26,12 @@
     Mail: <input type="text" id="mail" /> <br/>
     <hr/>
     <button id="btnIsRegistered">IsRegistered?</button> &nbsp; | &nbsp; <button id="btnRegister">Register</button> <br/>
-    <button id="btnListDocuments">List Documents</button> <br/>
+    <button id="btnDocumentCount">Count Documents of author</button> <input type="text" id="txtDocumentCount" width="100%" /> <br/>
+    <button id="btnListDocuments">List Documents (max 10) of author</button> &nbsp; from (inclusive) &nbsp; <input type="text" id="startIndex" width="100%" /> &nbsp; to (inclusive) &nbsp; <input type="text" id="endIndex" width="100%" /> <br/>
     <hr/>
     Event: <input type="text" id="txtEvent" width="100%"  /> <br/>
     Result: <input type="text" id="txtResult" width="100%"  /> <br/>
+     <br/>
     <ul id="list"/>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

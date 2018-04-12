@@ -30,14 +30,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6102628061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a72305820239c8517e3c3edecb2914fe1497a05270117c77ad0069274c8d1adfd099f376e0029",
-  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a72305820239c8517e3c3edecb2914fe1497a05270117c77ad0069274c8d1adfd099f376e0029",
+  "bytecode": "0x6060604052341561000f57600080fd5b6102628061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058207f3fd84d6f119d639d7bac09ea7085993c10937b79f4f1d3e064abb32e3217680029",
+  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058207f3fd84d6f119d639d7bac09ea7085993c10937b79f4f1d3e064abb32e3217680029",
   "sourceMap": "59:77:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "59:77:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:185:4;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;257:92;;;;;;;;;;;;;;68:185;126:11;157:3;149:4;;;;;;;;;;;:11;;;;:33;;;;;178:4;;;;;;;;;;;164:18;;:10;:18;;;;149:33;145:66;;;199:5;192:12;;;;145:66;223:8;216:4;;:15;;;;;;;;;;;;;;;;;;244:4;237:11;;68:185;;;;:::o;257:92::-;306:4;;;;;;;;;;;292:18;;:10;:18;;;288:57;;;333:4;;;;;;;;;;;320:18;;;288:57;257:92::o",
+  "deployedSourceMap": "59:77:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:185:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;257:92;;;;;;;;;;;;;;68:185;126:11;157:3;149:4;;;;;;;;;;;:11;;;;:33;;;;;178:4;;;;;;;;;;;164:18;;:10;:18;;;;149:33;145:66;;;199:5;192:12;;;;145:66;223:8;216:4;;:15;;;;;;;;;;;;;;;;;;244:4;237:11;;68:185;;;;:::o;257:92::-;306:4;;;;;;;;;;;292:18;;:10;:18;;;288:57;;;333:4;;;;;;;;;;;320:18;;;288:57;257:92::o",
   "source": "pragma solidity ^0.4.19;\r\n\r\nimport \"./DougEnabled.sol\";\r\n\r\ncontract DocumentBase is DougEnabled {\r\n\r\n    uint constant pageSize = 10;\r\n}",
-  "sourcePath": "C:\\Users\\nick\\Documents\\Howest\\Nick\\BDA-SEM2\\Blockchain Development II\\Taken\\DocumentStore\\contracts\\DocumentBase.sol",
+  "sourcePath": "C:\\Users\\nick\\Documents\\Howest\\Nick\\BDA-SEM2\\Blockchain Development II\\Taken\\DocumentStore\\DocumentStore\\contracts\\DocumentBase.sol",
   "ast": {
-    "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/DocumentBase.sol",
+    "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DocumentBase.sol",
     "exportedSymbols": {
       "DocumentBase": [
         19
@@ -58,12 +58,12 @@
         "src": "0:24:1"
       },
       {
-        "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/DougEnabled.sol",
+        "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DougEnabled.sol",
         "file": "./DougEnabled.sol",
         "id": 13,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 523,
+        "sourceUnit": 651,
         "src": "28:27:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -77,10 +77,10 @@
               "id": 14,
               "name": "DougEnabled",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 522,
+              "referencedDeclaration": 650,
               "src": "84:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DougEnabled_$522",
+                "typeIdentifier": "t_contract$_DougEnabled_$650",
                 "typeString": "contract DougEnabled"
               }
             },
@@ -90,7 +90,7 @@
           }
         ],
         "contractDependencies": [
-          522
+          650
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -98,7 +98,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          522
+          650
         ],
         "name": "DocumentBase",
         "nodeType": "ContractDefinition",
@@ -154,7 +154,7 @@
     "src": "0:136:1"
   },
   "legacyAST": {
-    "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/DocumentBase.sol",
+    "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DocumentBase.sol",
     "exportedSymbols": {
       "DocumentBase": [
         19
@@ -175,12 +175,12 @@
         "src": "0:24:1"
       },
       {
-        "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/contracts/DougEnabled.sol",
+        "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DougEnabled.sol",
         "file": "./DougEnabled.sol",
         "id": 13,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 523,
+        "sourceUnit": 651,
         "src": "28:27:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -194,10 +194,10 @@
               "id": 14,
               "name": "DougEnabled",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 522,
+              "referencedDeclaration": 650,
               "src": "84:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DougEnabled_$522",
+                "typeIdentifier": "t_contract$_DougEnabled_$650",
                 "typeString": "contract DougEnabled"
               }
             },
@@ -207,7 +207,7 @@
           }
         ],
         "contractDependencies": [
-          522
+          650
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -215,7 +215,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          522
+          650
         ],
         "name": "DocumentBase",
         "nodeType": "ContractDefinition",
@@ -272,9 +272,9 @@
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-10T20:30:25.683Z"
+  "updatedAt": "2018-04-12T22:50:44.704Z"
 }
