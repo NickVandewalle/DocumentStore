@@ -4,5 +4,5 @@ import "./DougEnabled.sol";
 
 contract DocumentBase is DougEnabled {
 
-    uint constant pageSize = 10;
+    uint public constant pageSize = 10;    
 }

@@ -5,14 +5,14 @@
       "constant": true,
       "inputs": [
         {
-          "name": "name",
+          "name": "",
           "type": "bytes32"
         }
       ],
       "name": "contracts",
       "outputs": [
         {
-          "name": "adr",
+          "name": "",
           "type": "address"
         }
       ],
@@ -21,11 +21,11 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60db8061001d6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ec56a373146044575b600080fd5b3415604e57600080fd5b606660048080356000191690602001909190505060a8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60009190505600a165627a7a72305820f611b7da7e7fa446b17c10df05b25f90afea164dbe9c2ccdf20c21fb07960cf60029",
-  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ec56a373146044575b600080fd5b3415604e57600080fd5b606660048080356000191690602001909190505060a8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60009190505600a165627a7a72305820f611b7da7e7fa446b17c10df05b25f90afea164dbe9c2ccdf20c21fb07960cf60029",
-  "sourceMap": "26:101:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:101:0:-;;;;;;;;;;;;;;;;;;;;;;;;56:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;110:11;56:69;;;:::o",
-  "source": "pragma solidity ^0.4.17;\n\ncontract ContractProvider {\n  function contracts(bytes32 name) public pure returns (address adr) {}\n}",
+  "bytecode": "0x6060604052341561000f57600080fd5b60db8061001d6000396000f300606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ec56a373146044575b600080fd5b3415604e57600080fd5b606660048080356000191690602001909190505060a8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60009190505600a165627a7a723058209689408b70735e4ad14e1c62288c4887f00093d6161001e2a8d6207952fd53100029",
+  "deployedBytecode": "0x606060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063ec56a373146044575b600080fd5b3415604e57600080fd5b606660048080356000191690602001909190505060a8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60009190505600a165627a7a723058209689408b70735e4ad14e1c62288c4887f00093d6161001e2a8d6207952fd53100029",
+  "sourceMap": "26:92:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:92:0:-;;;;;;;;;;;;;;;;;;;;;;;;56:60;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;105:7;56:60;;;:::o",
+  "source": "pragma solidity ^0.4.17;\n\ncontract ContractProvider {\n  function contracts(bytes32) public pure returns (address) {}\n}\n",
   "sourcePath": "C:\\Users\\nick\\Documents\\Howest\\Nick\\BDA-SEM2\\Blockchain Development II\\Taken\\DocumentStore\\DocumentStore\\contracts\\ContractProvider.sol",
   "ast": {
     "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/ContractProvider.sol",
@@ -65,10 +65,9 @@
             "body": {
               "id": 8,
               "nodeType": "Block",
-              "src": "123:2:0",
+              "src": "114:2:0",
               "statements": []
             },
-            "documentation": null,
             "id": 9,
             "implemented": true,
             "isConstructor": false,
@@ -83,10 +82,10 @@
                 {
                   "constant": false,
                   "id": 3,
-                  "name": "name",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 9,
-                  "src": "75:12:0",
+                  "src": "75:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -107,7 +106,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "74:14:0"
+              "src": "74:9:0"
             },
             "payable": false,
             "returnParameters": {
@@ -117,10 +116,10 @@
                 {
                   "constant": false,
                   "id": 6,
-                  "name": "adr",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 9,
-                  "src": "110:11:0",
+                  "src": "105:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -131,7 +130,7 @@
                     "id": 5,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "110:7:0",
+                    "src": "105:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -141,20 +140,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "109:13:0"
+              "src": "104:9:0"
             },
             "scope": 10,
-            "src": "56:69:0",
+            "src": "56:60:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 11,
-        "src": "26:101:0"
+        "src": "26:92:0"
       }
     ],
-    "src": "0:127:0"
+    "src": "0:119:0"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/ContractProvider.sol",
@@ -194,10 +193,9 @@
             "body": {
               "id": 8,
               "nodeType": "Block",
-              "src": "123:2:0",
+              "src": "114:2:0",
               "statements": []
             },
-            "documentation": null,
             "id": 9,
             "implemented": true,
             "isConstructor": false,
@@ -212,10 +210,10 @@
                 {
                   "constant": false,
                   "id": 3,
-                  "name": "name",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 9,
-                  "src": "75:12:0",
+                  "src": "75:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -236,7 +234,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "74:14:0"
+              "src": "74:9:0"
             },
             "payable": false,
             "returnParameters": {
@@ -246,10 +244,10 @@
                 {
                   "constant": false,
                   "id": 6,
-                  "name": "adr",
+                  "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 9,
-                  "src": "110:11:0",
+                  "src": "105:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -260,7 +258,7 @@
                     "id": 5,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "110:7:0",
+                    "src": "105:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -270,26 +268,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "109:13:0"
+              "src": "104:9:0"
             },
             "scope": 10,
-            "src": "56:69:0",
+            "src": "56:60:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 11,
-        "src": "26:101:0"
+        "src": "26:92:0"
       }
     ],
-    "src": "0:127:0"
+    "src": "0:119:0"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-12T22:50:44.697Z"
+  "updatedAt": "2018-04-13T19:02:22.508Z"
 }

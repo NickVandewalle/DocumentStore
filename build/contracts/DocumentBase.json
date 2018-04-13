@@ -21,6 +21,20 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "pageSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [],
       "name": "remove",
@@ -30,11 +44,11 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6102628061001e6000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058207f3fd84d6f119d639d7bac09ea7085993c10937b79f4f1d3e064abb32e3217680029",
-  "deployedBytecode": "0x60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e14610051578063a7f43779146100a2575b600080fd5b341561005c57600080fd5b610088600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100b7565b604051808215151515815260200191505060405180910390f35b34156100ad57600080fd5b6100b56101a5565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561014d57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561015b57600090506101a0565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610234576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a723058207f3fd84d6f119d639d7bac09ea7085993c10937b79f4f1d3e064abb32e3217680029",
-  "sourceMap": "59:77:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "59:77:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:185:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;257:92;;;;;;;;;;;;;;68:185;126:11;157:3;149:4;;;;;;;;;;;:11;;;;:33;;;;;178:4;;;;;;;;;;;164:18;;:10;:18;;;;149:33;145:66;;;199:5;192:12;;;;145:66;223:8;216:4;;:15;;;;;;;;;;;;;;;;;;244:4;237:11;;68:185;;;;:::o;257:92::-;306:4;;;;;;;;;;;292:18;;:10;:18;;;288:57;;;333:4;;;;;;;;;;;320:18;;;288:57;257:92::o",
-  "source": "pragma solidity ^0.4.19;\r\n\r\nimport \"./DougEnabled.sol\";\r\n\r\ncontract DocumentBase is DougEnabled {\r\n\r\n    uint constant pageSize = 10;\r\n}",
+  "bytecode": "0x6060604052341561000f57600080fd5b61029b8061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e1461005c57806394490e9a146100ad578063a7f43779146100d6575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100eb565b604051808215151515815260200191505060405180910390f35b34156100b857600080fd5b6100c06101d9565b6040518082815260200191505060405180910390f35b34156100e157600080fd5b6100e96101de565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561018157506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561018f57600090506101d4565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b600a81565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561026d576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a7230582008325313785630aca041b1e34a1e5b8eb7c62be851e6faefa89ab9c8a0a44e4c0029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806380e2653e1461005c57806394490e9a146100ad578063a7f43779146100d6575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506100eb565b604051808215151515815260200191505060405180910390f35b34156100b857600080fd5b6100c06101d9565b6040518082815260200191505060405180910390f35b34156100e157600080fd5b6100e96101de565b005b6000806000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415801561018157506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614155b1561018f57600090506101d4565b816000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550600190505b919050565b600a81565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561026d576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16ff5b5600a165627a7a7230582008325313785630aca041b1e34a1e5b8eb7c62be851e6faefa89ab9c8a0a44e4c0029",
+  "sourceMap": "55:85:1:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "55:85:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;68:185:5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;99:34:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;257:92:5;;;;;;;;;;;;;;68:185;126:11;157:3;149:4;;;;;;;;;;;:11;;;;:33;;;;;178:4;;;;;;;;;;;164:18;;:10;:18;;;;149:33;145:66;;;199:5;192:12;;;;145:66;223:8;216:4;;:15;;;;;;;;;;;;;;;;;;244:4;237:11;;68:185;;;;:::o;99:34:1:-;131:2;99:34;:::o;257:92:5:-;306:4;;;;;;;;;;;292:18;;:10;:18;;;288:57;;;333:4;;;;;;;;;;;320:18;;;288:57;257:92::o",
+  "source": "pragma solidity ^0.4.19;\n\nimport \"./DougEnabled.sol\";\n\ncontract DocumentBase is DougEnabled {\n\n    uint public constant pageSize = 10;    \n}\n",
   "sourcePath": "C:\\Users\\nick\\Documents\\Howest\\Nick\\BDA-SEM2\\Blockchain Development II\\Taken\\DocumentStore\\DocumentStore\\contracts\\DocumentBase.sol",
   "ast": {
     "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DocumentBase.sol",
@@ -63,8 +77,8 @@
         "id": 13,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 651,
-        "src": "28:27:1",
+        "sourceUnit": 714,
+        "src": "26:27:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -77,20 +91,20 @@
               "id": 14,
               "name": "DougEnabled",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 650,
-              "src": "84:11:1",
+              "referencedDeclaration": 713,
+              "src": "80:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DougEnabled_$650",
+                "typeIdentifier": "t_contract$_DougEnabled_$713",
                 "typeString": "contract DougEnabled"
               }
             },
             "id": 15,
             "nodeType": "InheritanceSpecifier",
-            "src": "84:11:1"
+            "src": "80:11:1"
           }
         ],
         "contractDependencies": [
-          650
+          713
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -98,7 +112,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          650
+          713
         ],
         "name": "DocumentBase",
         "nodeType": "ContractDefinition",
@@ -109,7 +123,7 @@
             "name": "pageSize",
             "nodeType": "VariableDeclaration",
             "scope": 19,
-            "src": "105:27:1",
+            "src": "99:34:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -120,7 +134,7 @@
               "id": 16,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "105:4:1",
+              "src": "99:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -136,7 +150,7 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "130:2:1",
+              "src": "131:2:1",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_10_by_1",
@@ -144,14 +158,14 @@
               },
               "value": "10"
             },
-            "visibility": "internal"
+            "visibility": "public"
           }
         ],
         "scope": 20,
-        "src": "59:77:1"
+        "src": "55:85:1"
       }
     ],
-    "src": "0:136:1"
+    "src": "0:141:1"
   },
   "legacyAST": {
     "absolutePath": "/C/Users/nick/Documents/Howest/Nick/BDA-SEM2/Blockchain Development II/Taken/DocumentStore/DocumentStore/contracts/DocumentBase.sol",
@@ -180,8 +194,8 @@
         "id": 13,
         "nodeType": "ImportDirective",
         "scope": 20,
-        "sourceUnit": 651,
-        "src": "28:27:1",
+        "sourceUnit": 714,
+        "src": "26:27:1",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -194,20 +208,20 @@
               "id": 14,
               "name": "DougEnabled",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 650,
-              "src": "84:11:1",
+              "referencedDeclaration": 713,
+              "src": "80:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_DougEnabled_$650",
+                "typeIdentifier": "t_contract$_DougEnabled_$713",
                 "typeString": "contract DougEnabled"
               }
             },
             "id": 15,
             "nodeType": "InheritanceSpecifier",
-            "src": "84:11:1"
+            "src": "80:11:1"
           }
         ],
         "contractDependencies": [
-          650
+          713
         ],
         "contractKind": "contract",
         "documentation": null,
@@ -215,7 +229,7 @@
         "id": 19,
         "linearizedBaseContracts": [
           19,
-          650
+          713
         ],
         "name": "DocumentBase",
         "nodeType": "ContractDefinition",
@@ -226,7 +240,7 @@
             "name": "pageSize",
             "nodeType": "VariableDeclaration",
             "scope": 19,
-            "src": "105:27:1",
+            "src": "99:34:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -237,7 +251,7 @@
               "id": 16,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "105:4:1",
+              "src": "99:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -253,7 +267,7 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "130:2:1",
+              "src": "131:2:1",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_10_by_1",
@@ -261,20 +275,20 @@
               },
               "value": "10"
             },
-            "visibility": "internal"
+            "visibility": "public"
           }
         ],
         "scope": 20,
-        "src": "59:77:1"
+        "src": "55:85:1"
       }
     ],
-    "src": "0:136:1"
+    "src": "0:141:1"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+    "version": "0.4.19+commit.c4cbbb05.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-12T22:50:44.704Z"
+  "updatedAt": "2018-04-13T19:02:22.510Z"
 }

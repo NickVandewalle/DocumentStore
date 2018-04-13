@@ -1,0 +1,27 @@
+body {
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+}
+
+.main {
+  width: 100%;
+}
+
+.docinfo {
+  width: 100%;
+}
+
+table {
+   border-style: solid;
+}
+
+table .lastRow {
+  text-align: center;
+  border-top: solid;
+}
+
+.wideInput {
+  width: 400px;
+}

@@ -22,7 +22,7 @@ contract DocumentStore is DocumentBase {
     mapping(bytes32 => bytes32[]) private documentsOfAuthor; //documentsOfAuthor[authorName] = array of docHashes
     mapping(bytes32 => Document) private documents; //documents[docHash] = Document
 
-    modifier onlyByDocumentManager() {        
+    modifier onlyByDocumentManager() {
         require(DOUG != 0x0);
         address documentManager = ContractProvider(DOUG).contracts("documentmanager");
         require(msg.sender == documentManager);
@@ -39,15 +39,14 @@ contract DocumentStore is DocumentBase {
 
     //return if registration was succesful
     function registerDocument(bytes32 docHash, bytes32 title, bytes32 releaseDate, bytes32 authorName, bytes32 authorMail) onlyByDocumentManager external returns (bool) {
-        if (documents[docHash].isEntity) {
-            DocumentRegistered(false, docHash);
-            return false;
-        } else {
+        bool succes = false;
+        if (!documents[docHash].isEntity) {
             documents[docHash] = Document(title, releaseDate, Author(authorName, authorMail), true);
             documentsOfAuthor[authorName].push(docHash);
-            DocumentRegistered(true, docHash);
-            return true;
+            succes = true;
         }
+        DocumentRegistered(succes, docHash);
+        return succes;
     }
 
     //return if registration was succesful
@@ -55,18 +54,19 @@ contract DocumentStore is DocumentBase {
         bool succes = false;
 
         assembly {
-            mstore(0x0, authorName)
-            mstore(0x20, 0x1)                       //skip DOUG byte
-            let docauth := keccak256(0x0, 0x40) 	  //documentsOfAuthor[authorName]
+            let mem := mload(0x40)
+            mstore(mem, authorName)
+            mstore(add(mem, 0x20), documentsOfAuthor_slot)    //documentsOfAuthor storage slot
+            let docauth := keccak256(mem, 0x40) 	  //documentsOfAuthor[authorName] => contains length of array
             let nrOfDocuments := sload(docauth)
 
-            mstore(0x0, docauth)
-            let docauth0 := keccak256(0x0, 0x20)   //address of documentsOfAuthor[authorName][0]
+            mstore(mem, docauth)
+            let docauth0 := keccak256(mem, 0x20)   //address of documentsOfAuthor[authorName][0]
 
-            mstore(0x0, docHash)
-            mstore(0x20, 0x2)                      //skip DOUG byte + first mapping
+            mstore(mem, docHash)
+            mstore(add(mem, 0x20), documents_slot)                      //documents slot
             let doc := keccak256(0x0, 0x40)        //address of documents[docHash]
-            
+
             if eq(sload(add(doc, 0x4)), 0) {                            //doesn't exists
                 sstore(docauth, add(nrOfDocuments, 1))                  //store amount of documents
                 sstore(add(docauth0, mul(nrOfDocuments, 0x1)), docHash) //store dochash
@@ -85,18 +85,18 @@ contract DocumentStore is DocumentBase {
 
     function getAmountOfDocumentsFromAuthor(bytes32 authorName) onlyByDocumentManager external constant returns(uint256 nrOfDocuments) {
         assembly {
-            mstore(0x0, authorName)
-            mstore(0x20, 0x1)                        //skip DOUG byte
-            let docauth := keccak256(0x0, 0x40) 	   //documentsOfAuthor[authorName]
+            let mem := mload(0x40)
+            mstore(mem, authorName)
+            mstore(add(mem, 0x20), documentsOfAuthor_slot)                        //documentsOfAuthor storage slot
+            let docauth := keccak256(mem, 0x40) 	   //documentsOfAuthor[authorName] => contains length of array
             nrOfDocuments := sload(docauth)
         }
-
         return nrOfDocuments;
     }
 
     //no check on correct indices => responsability of frontend
     function getDocumentListFromAuthor(bytes32 authorName, uint256 startIndex, uint256 endIndex) onlyByDocumentManager external constant returns (bytes32 authorMail, bytes32[pageSize] memory titles, bytes32[pageSize] memory releaseDates) {
-        require(endIndex - startIndex < 10);
+        require(endIndex - startIndex < pageSize);
 
         authorMail = documents[documentsOfAuthor[authorName][0]].author.mail;
         for (uint256 i = startIndex; i <= endIndex; i++) {
@@ -109,16 +109,17 @@ contract DocumentStore is DocumentBase {
 
     //no check on correct indices => responsability of frontend
     function getDocumentListFromAuthorAsm(bytes32 authorName, uint256 startIndex, uint256 endIndex) onlyByDocumentManager external constant returns (bytes32 authorMail, bytes32[pageSize] memory titles, bytes32[pageSize] memory releaseDates) {
-        require(endIndex - startIndex < 10);
+        require(endIndex - startIndex < pageSize);
 
         assembly {
-            mstore(0x0, authorName)
-            mstore(0x20, 0x1)                        //skip DOUG byte
-            let docauth := keccak256(0x0, 0x40) 	   //documentsOfAuthor[authorName]
+            let mem := mload(0x40)
+            mstore(mem, authorName)
+            mstore(add(mem, 0x20), documentsOfAuthor_slot)                        //skip DOUG byte
+            let docauth := keccak256(mem, 0x40) 	   //documentsOfAuthor[authorName]
             //nrOfDocuments := sload(docauth)        //length not needed
 
-            mstore(0x0, docauth)
-            let docauth0 := keccak256(0x0, 0x20)  //address of documentsOfAuthor[authorName][0]
+            mstore(mem, docauth)
+            let docauth0 := keccak256(mem, 0x20)  //address of documentsOfAuthor[authorName][0]
 
             for
                 { let i := startIndex }
@@ -127,9 +128,9 @@ contract DocumentStore is DocumentBase {
             {
                 let docHash := sload(add(docauth0, mul(i, 0x1)))
 
-                mstore(0x0, docHash)                   //store docHash to memory
-                mstore(0x20, 0x2)           //skip doug byte + first mapping
-                let doc := keccak256(0x0, 0x40)        //address of documents[docHash]
+                mstore(mem, docHash)                   //store docHash to memory
+                mstore(add(mem, 0x20), documents_slot)           //skip doug byte + first mapping
+                let doc := keccak256(mem, 0x40)        //address of documents[docHash]
 
                 if eq(i, 0) { authorMail := sload(add(doc, 0x3)) }  //+2 for Author Struct, +1 for second byte
 
