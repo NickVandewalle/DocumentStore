@@ -16,6 +16,49 @@ function clearFields() {
   $("#txtResult").val("");
 }
 
+function clearDocResults() {
+  $("#nrOfDocuments").val("");
+  $("#pageSize").val("");
+}
+
+function showTable(nrOfDocuments, pageSize, from, to, result, calculatePaging) {
+
+  var author = $("#author").val();
+  $("#docList").dataTable().fnDestroy();
+  $('#tbody').empty();
+
+  $("#txtResult").val("Displaying " + (to-from) + " / " + nrOfDocuments);
+  var listBody = $('#docList').children('tbody');
+
+  if (calculatePaging) {
+    var paging = $(".pagination");
+    paging.empty();
+
+    //$('<li class="page-item"><a class="page-link" id="pagelink0" href="#">&laquo;</a></li>').appendTo(paging);
+    for (i=0; i < Math.ceil(nrOfDocuments/pageSize); i++) {
+      $('<li class="page-item"><a class="page-link" id=' + ("pagelink" + i) + ' href="#">' + (i+1) + '</a></li>').appendTo(paging);
+    }
+    //$('<li class="page-item"><a class="page-link" id=' + ("pagelink" + nrOfDocuments) + ' href="#">&raquo;</a></li>').appendTo(paging);
+  }
+
+  for (i=0; i < (to-from); i++) {
+    $('<tr><th>' + author + '</th><th>' + toAscii(result[0]) + '</th><th>' + toAscii(result[1][i]) + '</th><th>' + toAscii(result[2][i]) + '</th></tr>').appendTo(listBody);
+  }
+
+  $('#docList').DataTable({
+   "destroy": true,
+   "processing": true,
+   "bPaginate": false,
+   "bLengthChange": false,
+   "iDisplayLength": pageSize,
+   "bFilter": true,
+   "bInfo": false,
+   "bAutoWidth": true,
+   "ordering": false
+  });
+  $('#example').dataTable().fnDraw();
+}
+
 App = {
   web3Provider: null,
   contracts: {},
@@ -57,7 +100,7 @@ App = {
     var documentStoreInstance;
     web3.eth.getAccounts(function(error, accounts) {
       if (error) {
-        console.error(error);
+        console.error("Event, accounts: " + error);
       }
       var account = accounts[0];
       App.contracts.DocumentStore.deployed().then(function(instance) {
@@ -67,7 +110,7 @@ App = {
             $("#txtEvent").val("event triggered: error = " + error);
             return;
           }
-          else {
+          else if (result) {
             $("#txtEvent").val("event triggered: " + result.args.succes);
           }
         })
@@ -84,6 +127,7 @@ App = {
     $(document).on('click', '#btnListDocuments', App.handleListDocuments);
     $(document).on('click', '#btnTestData', App.handleFillWithTestData);
     $(document).on('change', "#fileInput", App.handleLoadFile);
+    $(document).on('click', ".page-link", App.handlePaginate);
 
   },
 
@@ -122,7 +166,9 @@ App = {
       var documentManagerInstance;
       web3.eth.getAccounts(function(error, accounts) {
         if (error) {
-          console.error(error);
+          console.error("IsRegistered, accounts: " + error);
+          if (err.message.includes("invalid address"))
+            alert("Pleas log in your metamask account.");
         }
         var account = accounts[0];
         App.contracts.DocumentManager.deployed().then(function(instance) {
@@ -130,7 +176,7 @@ App = {
           return documentManagerInstance.isDocumentRegistered(docHash);
         }).then(function(result) {
           if (result[0] == true)
-            $("#txtResult").val("Is registered to " + toAscii(result[3]));
+            $("#txtResult").val("Is registered to " + toAscii(result[3]) + " (" + toAscii(result[4]) + "): " + toAscii(result[1]) + " (" + toAscii(result[2]) + ")");
           else {
             $("#txtResult").val("Not registered yet");
           }
@@ -156,7 +202,9 @@ App = {
     var documentManagerInstance;
     web3.eth.getAccounts(function(error, accounts) {
       if (error) {
-        console.error(error);
+        console.error("Register, accounts: " + error);
+        if (err.message.includes("invalid address"))
+          alert("Pleas log in your metamask account.");
       }
       var account = accounts[0];
       App.contracts.DocumentManager.deployed().then(function(instance) {
@@ -164,7 +212,7 @@ App = {
         return documentManagerInstance.isDocumentRegistered.call(docHash);
       }).then(function(result) {
         if (result[0] == true) {
-            $("#txtResult").val("Already registered to " + toAscii(result[3]));
+            $("#txtResult").val("Already registered to " + toAscii(result[3]) + " (" + toAscii(result[4]) + "): " + toAscii(result[1]) + " (" + toAscii(result[2]) + ")");
             return false;
         }
         else {
@@ -178,21 +226,25 @@ App = {
           alert("Pleas log in your metamask account.");
         console.error("RegisterDoc: " + err.message);
       });
-    }); 
+    });
   },
 
   handleListDocuments: function(event) {
     event.preventDefault();
 
     clearFields();
+    clearDocResults();
 
     var documentManagerInstance;
     web3.eth.getAccounts(function(error, accounts) {
       if (error) {
-        console.error(error);
+        console.error("ListDocs, accounts: " + error);
+        if (err.message.includes("invalid address"))
+          alert("Pleas log in your metamask account.");
       }
       var account = accounts[0];
       var author = $("#author").val();
+      var firstBatch = 0;
       var nrOfDocuments = 0;
       var pageSize = 0;
       App.contracts.DocumentManager.deployed().then(function(instance) {
@@ -200,9 +252,7 @@ App = {
         return documentManagerInstance.getAmountOfDocumentsFromAuthor.call(author);
       }).then(function(result) {
         nrOfDocuments = result.c[0];
-        $("#docList").dataTable().fnDestroy();
-        $('#tbody').empty();
-
+        $("#nrOfDocuments").val(nrOfDocuments);
         if (nrOfDocuments == 0) {
           $("#txtResult").val("no results");
           return 0;
@@ -211,45 +261,67 @@ App = {
           return documentManagerInstance.getPageSize.call();
       }).then(function(result) {
         if (nrOfDocuments > 0) {
-          pageSize = result.c[0]; //todo: implement loading by batches
+          pageSize = result.c[0];
+          $("#pageSize").val(pageSize);
+          firstBatch = pageSize;
+          if (firstBatch > nrOfDocuments)
+            firstBatch = nrOfDocuments;
           if ($("#cbAssembly").is(":checked")) {
-            return documentManagerInstance.getDocumentListFromAuthorAsm.call(author, 0, nrOfDocuments-1);
+            return documentManagerInstance.getDocumentListFromAuthorAsm.call(author, 0, firstBatch-1);
           }
           else {
-            return documentManagerInstance.getDocumentListFromAuthor.call(author, 0, nrOfDocuments-1);
+            return documentManagerInstance.getDocumentListFromAuthor.call(author, 0, firstBatch-1);
           }
         }
         else
           return false;
       }).then(function(result) {
-        console.log(result);
         if (nrOfDocuments > 0) {
-          $("#txtResult").val("Displaying " + nrOfDocuments);
-          var listBody = $('#docList').children('tbody');
-
-          for (i=0; i < nrOfDocuments; i++) {
-            $('<tr><th>' + author + '</th><th>' + toAscii(result[0]) + '</th><th>' + toAscii(result[1][i]) + '</th><th>' + toAscii(result[2][i]) + '</th></tr>').appendTo(listBody);
-          }
-
-          $('#docList').DataTable({
-            "destroy": true,
-            "processing": true,
-            "bPaginate": true,
-            "bLengthChange": false,
-            "iDisplayLength": 5,
-            "bFilter": true,
-            "bInfo": true,
-            "bAutoWidth": true
-          });
-         $('#example').dataTable().fnDraw();
-
+          showTable(nrOfDocuments, pageSize, 0, firstBatch, result, true);
         }
-
         return true;
       }).catch(function(err) {
         console.error("List docs: " + err.message);
       });
     });
+  },
+
+  handlePaginate: function(event) {
+     event.preventDefault();
+
+     var id = event.target.id.replace("pagelink", "");
+     var nrOfDocuments = $("#nrOfDocuments").val();
+     var pageSize = $("#pageSize").val();
+     var from = id * pageSize * 1;
+     var to = Number(from) + Number(pageSize); //Number: otherwise js concatenates variables as strings
+     if (to > nrOfDocuments)
+      to = nrOfDocuments;
+
+     var documentManagerInstance;
+     web3.eth.getAccounts(function(error, accounts) {
+       if (error) {
+         console.error("Paginate, accounts: " + error);
+         if (err.message.includes("invalid address"))
+           alert("Pleas log in your metamask account.");
+       }
+       var account = accounts[0];
+       var author = $("#author").val();
+
+       App.contracts.DocumentManager.deployed().then(function(instance) {
+         documentManagerInstance = instance;
+         if ($("#cbAssembly").is(":checked")) {
+           return documentManagerInstance.getDocumentListFromAuthorAsm.call(author, from, to-1);
+         }
+         else {
+           return documentManagerInstance.getDocumentListFromAuthor.call(author, from, to-1);
+         }
+       }).then(function(result) {
+         showTable(nrOfDocuments, pageSize, from, to, result, false);
+         return true;
+       }).catch(function(err) {
+         console.error("List doc paging: " + err.message);
+       });
+     });
   }
 };
 
